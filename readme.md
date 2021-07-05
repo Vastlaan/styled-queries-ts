@@ -61,7 +61,7 @@ The module exports function which takes two arguments: **(breakpoint, content)**
 
 To use pre-configured breakpoints pass simply a **string** of value:
 
-| Breakpoint | Value |
+| Breakpoint | Result |
 | ------ | ------ |
 | **'xs'** | **(max-width: 319px)** |
 |**'s'** | **(min-width: 539px)**|
