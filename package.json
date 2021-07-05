@@ -1,0 +1,21 @@
+{
+  "name": "styled-queries-ts",
+  "version": "1.0.0",
+  "description": "Simple and flexible media queries for styled components with TS support.",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "files": [
+    "build/**/*"
+  ],
+  "scripts": {
+    "clean": "del ./build/*",
+    "build": "npm run clean && tsc"
+  },
+  "keywords": ["media", "queries", "styled-components","breakpoints", "react", "nextjs", "gatsby","styles","responsive"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "del-cli": "^4.0.0",
+    "typescript": "^4.3.5"
+  }
+}
