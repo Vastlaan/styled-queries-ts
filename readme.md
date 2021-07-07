@@ -1,5 +1,5 @@
 # styled-queries-ts
-This module is responsible for easy **injecting media queries into Components** which are made with **styled-components**
+This module is responsible for **injecting media queries into  styled Components** (components made with **styled-components**)
 
 _**Styled-queries-ts** is fully compatibile with **TypeScript**. It is delivered with its own types definitions._
 
@@ -39,11 +39,12 @@ Just import the module and use it within styled-component with pre-configured br
     }
 
     const Text = styled.p<IText>`
+
         font-size: 2.2rem;
         text-align: center;
         
         ${(p)=>respond('l',`
-            font-size: 6rem;
+            font-size: 4rem;
             color: ${p.color};
             margin: ${p.margin?p.margin:'0'};
         `)
@@ -57,11 +58,13 @@ Just import the module and use it within styled-component with pre-configured br
 
 The module exports function which takes two arguments: **(breakpoint, content)**
 
-#### Breakpoint (with pre-configured values)
+It returns a string with media query block with injected breakpoint and styles (content)
+
+### Breakpoint (with pre-configured values)
 
 To use pre-configured breakpoints pass simply a **string** of value:
 
-| Breakpoint | Result |
+| Breakpoint | Value |
 | ------ | ------ |
 | **'xs'** | **(max-width: 319px)** |
 |**'s'** | **(min-width: 539px)**|
@@ -82,9 +85,16 @@ or pass props (use backticks for second argument - content)
     ${(p)=>respond('m', `font-size: ${p.fontSize};`)
 ```
 
-#### Breakpoint (custom value)
+### Breakpoint (custom value)
 
-Istead of using pre-configured breakpoints define your own as an **object**:
+Instead of using pre-configured breakpoints define your own as an **object**
+
+This object should have a sturcture of two possible key-value pairs:
+
+**{min: number}**   _will emit media query block with (min-width: ${number}px)_
+**{max: number}**   _will emit media query block with (max-width: ${number}px)_
+
+For example:
 
 ```
     ${respond({min: 1024}, 'font-size: 2.6rem;')
@@ -97,11 +107,11 @@ or pass props (use backticks for second argument - content):
 ```
 _above will result with (max-width: 996px)_
 
-#### Content
+### Content
 
 It is simply string (or template string ) with CSS styles
 
 
 ## Invalid values
 
-**_If some of the breakpoint will be invalid, for example "skd" or {maxee: 34} the default breakpoint (min-width: 319px) will be injected_**
+If some of the breakpoint will be invalid, for example "skd" or {max: 'small'} the default breakpoint (min-width: 319px) will be injected
